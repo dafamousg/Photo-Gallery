@@ -11,6 +11,7 @@ const useStorage = (file) => {
     //references
     const storageRef = projectStorage.ref(file.name);
     const collectionRef = projectFirestore.collection('images');
+    const fileName = file.name;
 
     /*Function to:
       1. Calculate the percentage of upload file. (Convert bytes to percent)
@@ -25,7 +26,9 @@ const useStorage = (file) => {
     }, async () => {
       const url = await storageRef.getDownloadURL();
       const createdAt = timestamp();
-      collectionRef.add({url, createdAt});
+      //Add file.name to image collection
+      console.log(file.name);
+      collectionRef.add({url, createdAt, fileName});
       setUrl(url);
     })
   }, [file])
