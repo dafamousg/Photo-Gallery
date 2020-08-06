@@ -7,7 +7,7 @@ const DeleteButton = ({selectedImg,setSelectedImg}) => {
 
 
   const handleClick = (e) => {
-    DeleteImage('images', selectedImg.id);
+    DeleteImage('images', selectedImg);
     setSelectedImg(null);
   }
 
