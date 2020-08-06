@@ -26,8 +26,7 @@ const useStorage = (file) => {
     }, async () => {
       const url = await storageRef.getDownloadURL();
       const createdAt = timestamp();
-      //Add file.name to image collection
-      console.log(file.name);
+      
       collectionRef.add({url, createdAt, fileName});
       setUrl(url);
     })

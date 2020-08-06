@@ -1,5 +1,5 @@
 import React from 'react';
-import DeleteImage from '../hooks/DeleteImage';
+import deleteDoc from '../hooks/deleteDoc';
 //import useFirestore from '../hooks/useFirestore';
 //import {motion} from 'framer-motion';
 
@@ -7,7 +7,7 @@ const DeleteButton = ({selectedImg,setSelectedImg}) => {
 
 
   const handleClick = (e) => {
-    DeleteImage('images', selectedImg);
+    deleteDoc('images', selectedImg);
     setSelectedImg(null);
   }
 
