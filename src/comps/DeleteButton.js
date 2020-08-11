@@ -13,8 +13,8 @@ const DeleteButton = ({selectedImg,setSelectedImg}) => {
 
 
   return (
-    <div class="box-2">
-      <div class="btn btn-two" onClick={(handleClick)}>
+    <div className="box-2">
+      <div className="btn btn-two" onClick={(handleClick)}>
         <span>DELETE</span>
       </div>
     </div>
@@ -22,10 +22,5 @@ const DeleteButton = ({selectedImg,setSelectedImg}) => {
 
 
 }
-    {/* <div>
-      <button class="glow-on-hover" type="button" onClick={(handleClick)}>
-        Click to delete image
-      </button>
-    </div> */}
 
 export default DeleteButton;

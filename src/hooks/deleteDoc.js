@@ -1,32 +1,26 @@
-import {projectFirestore/*, projectStorage*/} from '../firebase/config';
-
-
+import {projectFirestore, projectStorage} from '../firebase/config';
 
 const deleteDoc = (collection,selectedImg) => {
-  //const imageRef = projectStorage.ref(selectedImg.fileName);
-  /* const doesImageExist = () => {
-    
-        projectFirestore.collection(collection)
-        .orderBy('createdAt', 'desc')
-        .onSnapshot((snap) => {
-          snap.forEach(doc => {
-            let dis = {...doc.data()}
-            console.log(dis.fileName);
-          });
-          console.log("Iz done");
-        });
-  } */
+  const imageRef = projectStorage.ref(selectedImg.fileName);
   
   projectFirestore.collection(collection).doc(selectedImg.id).delete().then(function() {      
-    /*TODO
-      Delete image from storage
-      else
-      Only delete collection doc.*/
-    /*imageRef.getMetadata().then(function(metadata) {
-      console.log("Metadata timestamp", metadata.timeCreated);
-      console.log("Image collection timestamp", selectedImg.createdAt);
-        
-       if(!doesImageExist){
+    let sameImage = 0;
+    let lastImg = false;
+  
+    //Checks if more than one copy of image exists in collection
+    projectFirestore.collection(collection)
+    .orderBy('createdAt')
+    .onSnapshot((snap) => {
+      snap.forEach(doc => {
+        let dis = {...doc.data()}
+        dis.fileName === selectedImg.fileName && sameImage++;
+      });
+      sameImage === 0 ? lastImg=true : lastImg=false;
+    });
+    
+    imageRef.getMetadata().then(function(metadata) {
+      //Deletes image from storage if lastImg is true
+      if(lastImg){
         imageRef.delete().then(function() {
           // File deleted successfully
           console.log("Image successfully deleted!");
@@ -35,12 +29,11 @@ const deleteDoc = (collection,selectedImg) => {
           console.error("Error removing image: ", error);
         });
       }else{
-        console.log("image exists in collection");
+        console.log("Image was not deleted from storage");
       } 
     }).catch(function(error) {
       console.error("retrieving metadata failed ", error);
-    });*/
-
+    });
     console.log("Document successfully deleted!");
   }).catch(function(error) {
     console.error("Error removing document: ", error);
