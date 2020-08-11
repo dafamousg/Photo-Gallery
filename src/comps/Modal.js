@@ -22,6 +22,7 @@ const Modal = ({selectedImg, setSelectedImg}) => {
         animate={{y:0}}
       />
       <DeleteButton selectedImg={selectedImg} setSelectedImg={setSelectedImg}/>
+      {selectedImg.fileName}
     </motion.div>  
   )
 
