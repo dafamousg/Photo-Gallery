@@ -30,6 +30,38 @@ body{
 }
 
 /* upload form styles */
+form{
+  margin: 30px auto 10px;
+  text-align: center;
+}
+label input{
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+label{
+  display: block;
+  width: 36px;
+  height: 34px;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  margin: 10px auto;
+  line-height: 30px;
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 24px;
+}
+label:hover{
+  background: var(--primary);
+  color: white;
+}
+.output{
+  height: 60px;
+  font-size: 0.8rem;
+}
+.error{
+  color: var(--error);
+}
 
 
 /* progress bar styles */
@@ -76,8 +108,70 @@ body{
 .backdrop img{
   display: block;
   max-width: 60%;
-  max-height: 80%;
-  margin: 60px auto;
+  max-height: 77%;
+  margin: 55px auto;
   box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
   border: 3px solid white;
+}
+
+/*Delete button*/
+
+div[class*=box] {
+	width: 100%; 
+  display: flex;
+  justify-content: center;
+}
+
+
+.btn {
+	line-height: 50px;
+	height: 50px;
+	text-align: center;
+	width: 160px;
+	cursor: pointer;
+}
+
+.btn-two {
+	color: #FFF;
+	transition: all 0.5s;
+	position: absolute;
+}
+.btn-two span {
+	z-index: 2;	
+	display: block;
+	position: static;
+	width: 100%;
+	height: 100%;	
+}
+.btn-two::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	transition: all 0.5s;
+	border: 1px solid rgba(255,255,255,0.2);
+	background-color: rgba(255, 0, 0, 0.281);
+}
+.btn-two::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	transition: all 0.5s;
+	border: 1px solid rgba(255,255,255,0.2);
+	background-color: rgba(255, 0, 0, 0.281);
+}
+.btn-two:hover::before {
+  transform: rotate(-45deg);
+  background-color: rgba(255, 0, 0, 0.281);
+}
+.btn-two:hover::after {
+  transform: rotate(45deg);
+  background-color: rgba(255, 0, 0, 0.281);
 }
