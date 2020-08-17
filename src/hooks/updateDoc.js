@@ -9,7 +9,7 @@ const updateDoc = async (collection,selectedImg) => {
 
   try {
     await collectionRef.update({
-      caption: "updated caption"//selectedImg.caption
+      caption: selectedImg.caption
     });
     console.log("Document successfully updated!");
   }

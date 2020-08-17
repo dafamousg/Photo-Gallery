@@ -98,6 +98,7 @@ label:hover{
 
 /* modal styles */
 .backdrop{
+  overflow-y: auto;
   position: fixed;
   top: 0;
   left: 0;
@@ -114,12 +115,24 @@ label:hover{
   border: 3px solid white;
 }
 
+
+/*(Edit Caption) Textarea*/
+.edit-div{
+  width: 100%; 
+  display: flex;
+  justify-content: center;
+}
+textarea{
+  resize: none;
+}
+
 /*Delete button*/
 
 div[class*=box] {
+  padding: 3% 0 0 0;
 	width: 100%; 
   display: flex;
-  justify-content: center;
+  justify-content: right;
 }
 
 
