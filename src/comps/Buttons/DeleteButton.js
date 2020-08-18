@@ -1,5 +1,5 @@
 import React from 'react';
-import deleteDoc from '../hooks/deleteDoc';
+import deleteDoc from '../../hooks/deleteDoc';
 //import useFirestore from '../hooks/useFirestore';
 //import {motion} from 'framer-motion';
 
