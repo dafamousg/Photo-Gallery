@@ -26,7 +26,7 @@ const useStorage = (file) => {
     }, async () => {
       const url = await storageRef.getDownloadURL();
       const createdAt = timestamp();
-      const caption = "Empty";
+      const caption = "";
       
       collectionRef.add({url, createdAt, fileName, caption});
       setUrl(url);
