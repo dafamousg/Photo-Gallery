@@ -18,7 +18,7 @@ const EditCaption = ({selectedImg,setSelectedImg}) => {
 
   return (
     <div className="edit-div">
-      <textarea placeholder="Enter to edit" id="myTextarea" name="paragraph_text" cols="50" rows="10"></textarea>
+      <textarea placeholder={selectedImg.caption} id="myTextarea" name="paragraph_text" cols="50" rows="10"></textarea>
       <div>
         <button onClick={(saveClick)}>Save</button>
         <button onClick={(cancelClick)}>Cancel</button>
