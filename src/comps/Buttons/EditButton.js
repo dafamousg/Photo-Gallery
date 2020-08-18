@@ -13,7 +13,7 @@ const EditButton = ({selectedImg,setSelectedImg}) => {
 
 
   return (
-    <div>
+    <div className="edit-btn">
       <div className="btn btn-two" onClick={(handleClick)}>
         <span>Edit Caption</span>
       </div>
